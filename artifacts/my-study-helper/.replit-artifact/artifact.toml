@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "My Study Helper"
+description = "A friendly study website for Class 12 students to choose a subject, get simple explanations for topics and questions, practise multiple-choice questions, and track study tasks."
+version = "1.0.0"
+id = "artifacts/my-study-helper"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20543
+
+[services.development]
+run = "pnpm --filter @workspace/my-study-helper run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/my-study-helper", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/my-study-helper/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20543"
+BASE_PATH = "/"
