@@ -1,0 +1,1 @@
+- [Study Helper access requirements](study-helper-access.md) — Keep notes, explanations, and quizzes available without paid APIs, keys, or account upgrades.
